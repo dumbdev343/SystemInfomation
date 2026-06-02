@@ -37,12 +37,14 @@ print(" ")
 
 pkgyes = input("Would you like to install any packages on your computer? ")
 if "yes" in pkgyes:
-    pkgname = input("What package do you want to install?")
-    if platform.system == "Windows":
+    pkgname = input("What package do you want to install? ")
+    if platform.system() == ("Windows"):
         print("Running on Windows, using winget....")
         os.system(f"winget install {pkgname}")
-    if platform.system == ("Linux"):
-        if os.path.exists("/etc/debian_version"):
-            print("Running on Debian, using apt....")
+    if platform.system() == ("Linux"):
+        if os.path.exists("/etc/apt/apt.conf.d"):
+            print("APT detected, using that instead....")
             os.system(f"apt install {pkgname}")
-        if os.path.exists("/etc/arch-release")
+        if os.path.exists("/etc/pacman.conf"):
+            print("Pacman detected, using that instead....")
+            os.system(f"pacman -Sy {pkgname}")
