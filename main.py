@@ -90,4 +90,5 @@ if "yes" in updyes:
             os.system("sudo zypper dup -y")
     if platform.system() == "Darwin":
         print("Sorry, Darwin/macOS is unsupported for the time being (Updates and Installing Packages)")
-        
+    if platform.system() == "Windows":
+        print("Sorry, Windows is unsupported to update for the time being, but you can install packages though!")  
